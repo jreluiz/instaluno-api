@@ -6,7 +6,9 @@ const photoConverter = row => ({
   allowComments: row.photo_allow_comments == "true" ? true : false,
   likes: row.likes,
   comments: row.comments,
-  userId: row.user_id
+  userId: row.user_id,
+  userName: row.user_name,
+  userPerfil: row.user_profile_photo_url
 });
 
 const commentConverter = row => ({
@@ -37,11 +39,11 @@ class PhotoDao {
                             FROM comment as c 
                             WHERE c.photo_id = p.photo_id
                          ) as comments, 
-
                         (SELECT COUNT(l.like_id) 
                             FROM like as l 
                             WHERE l.photo_id = p.photo_id
-                        ) as likes 
+                        ) as likes,
+                        u.*
                 FROM photo AS p
                         JOIN
                         user AS u ON p.user_id = u.user_id

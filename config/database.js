@@ -20,7 +20,7 @@ INSERT INTO user (
     user_profile_photo_url
 ) 
 
-SELECT 'senac', '123456', 'https://github.com/jreluiz/instasenac-api/uploads/senac' 
+SELECT 'senac', '123456', 'https://raw.githubusercontent.com/jreluiz/instasenac-api/main/uploads/senac.png' 
 WHERE NOT EXISTS (SELECT * FROM user WHERE user_name = 'senac')
 `;
 
