@@ -8,7 +8,8 @@ const photoConverter = row => ({
   comments: row.comments,
   userId: row.user_id,
   userName: row.user_name,
-  userPerfil: row.user_profile_photo_url
+  userPerfil: row.user_profile_photo_url,
+  likeada: row.photo_likeada > 0
 });
 
 const commentConverter = row => ({

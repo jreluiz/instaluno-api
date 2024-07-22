@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS photo (
     photo_description TEXT DEFAULT ('') NOT NULL, 
     photo_allow_comments INTEGER NOT NULL DEFAULT (1), 
     photo_likes BIGINT NOT NULL DEFAULT (0),
+    photo_likeada BOOLEAN NOT NULL DEFAULT (false),
     user_id INTEGER,
     FOREIGN KEY(user_id) REFERENCES user(user_id) ON DELETE CASCADE 
 )
@@ -54,9 +55,10 @@ INSERT INTO photo (
     photo_post_date,
     photo_url,
     photo_description,
-    user_id
+    user_id, 
+    photo_likeada
 )
-SELECT 1,datetime('2024-07-21 15:10:50'),'https://www.imagemhost.com.br/images/2023/11/04/Leao.jpg', 'Linda imagem!',1 
+SELECT 1,datetime('2024-07-21 15:10:50'),'https://www.imagemhost.com.br/images/2023/11/04/Leao.jpg', 'Linda imagem!',1,true
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 1)
 `;
 
@@ -66,9 +68,10 @@ INSERT INTO photo (
     photo_post_date,
     photo_url,
     photo_description,
-    user_id
+    user_id,
+    photo_likeada
 )
-SELECT 2,datetime('2024-07-20 15:00:50'),'https://www.imagemhost.com.br/images/2023/11/04/India.jpg','Top demais!',1
+SELECT 2,datetime('2024-07-20 15:00:50'),'https://www.imagemhost.com.br/images/2023/11/04/India.jpg','Top demais!',1,true
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 2)
 `;
 
@@ -78,9 +81,10 @@ INSERT INTO photo (
     photo_post_date,
     photo_url,
     photo_description,
-    user_id
+    user_id,
+    photo_likeada
 )
-SELECT 3,datetime('2024-07-19 15:00:50'),'https://www.imagemhost.com.br/images/2023/11/04/Carro-Esportivo.jpg','Que nave!!!',1
+SELECT 3,datetime('2024-07-19 15:00:50'),'https://www.imagemhost.com.br/images/2023/11/04/Carro-Esportivo.jpg','Que nave!!!',1,false
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 3)
 `;
 
@@ -90,10 +94,11 @@ INSERT INTO photo (
     photo_post_date,
     photo_url,
     photo_description,
-    user_id
+    user_id,
+    photo_likeada
 )
 
-SELECT 4,datetime('2024-07-18 15:00:50'),'https://www.imagemhost.com.br/images/2023/11/04/Astronauta.jpg','Lembrei da música o astronauta de mármore, to velho kkkk',2
+SELECT 4,datetime('2024-07-18 15:00:50'),'https://www.imagemhost.com.br/images/2023/11/04/Astronauta.jpg','Lembrei da música o astronauta de mármore, to velho kkkk',2,true
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 4)
 `;
 
@@ -103,10 +108,11 @@ INSERT INTO photo (
     photo_post_date,
     photo_url,
     photo_description,
-    user_id
+    user_id,
+    photo_likeada
 )
 
-SELECT 5,datetime('2024-07-18 15:05:50'),'https://www.imagemhost.com.br/images/2023/11/04/Lua.jpg','Que lua!!!',2
+SELECT 5,datetime('2024-07-18 15:05:50'),'https://www.imagemhost.com.br/images/2023/11/04/Lua.jpg','Que lua!!!',2,true
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 5)
 `;
 
@@ -116,10 +122,11 @@ INSERT INTO photo (
     photo_post_date,
     photo_url,
     photo_description,
-    user_id
+    user_id,
+    photo_likeada
 )
 
-SELECT 6,datetime('2024-07-17 13:05:50'),'https://www.imagemhost.com.br/images/2023/11/04/Alem-da-sua-Imaginacao.jpg','Foto perfeita',2
+SELECT 6,datetime('2024-07-17 13:05:50'),'https://www.imagemhost.com.br/images/2023/11/04/Alem-da-sua-Imaginacao.jpg','Foto perfeita',2,false
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 6)
 `;
 
